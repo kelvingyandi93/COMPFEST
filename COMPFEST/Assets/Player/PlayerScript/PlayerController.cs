@@ -13,7 +13,6 @@ public class PlayerController : MonoBehaviour
     public GameObject Player;
 
     Vector2 movementInput;
-    SpriteRenderer spriteRenderer;
     Rigidbody2D rb;
     Animator animator;
     List<RaycastHit2D> castCollisions = new List<RaycastHit2D>();
@@ -25,7 +24,6 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void FixedUpdate() {
