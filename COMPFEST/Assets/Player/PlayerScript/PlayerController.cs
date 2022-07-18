@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     public GameObject Player;
 
     Vector2 movementInput;
+    SpriteRenderer spriteRenderer;
     Rigidbody2D rb;
     Animator animator;
     List<RaycastHit2D> castCollisions = new List<RaycastHit2D>();
@@ -24,6 +25,7 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void FixedUpdate() {
@@ -43,13 +45,7 @@ public class PlayerController : MonoBehaviour
                     //animator.SetFloat("Vertical", movementInput.y);
                 }
             
-                if (movementInput.x == -1) {
-                    animator.SetFloat("Horizontal", movementInput.x);
-                    //gameObject.transform.Rotate(0, 180, 0);
-                } if (movementInput.x == 1) {
-                    animator.SetFloat("Horizontal", movementInput.x);
-                     gameObject.transform.Rotate(0, 0, 0);
-                }
+                animator.SetFloat("Horizontal", movementInput.x);
                 animator.SetFloat("Vertical", movementInput.y);
 
                 animator.SetFloat("speed", movementInput.sqrMagnitude);
@@ -64,13 +60,11 @@ public class PlayerController : MonoBehaviour
             }
 
             // Set direction of sprite to movement direction
-           /* 
             if(movementInput.x < 0) {
                 spriteRenderer.flipX = true;
             } else if (movementInput.x > 0) {
                 spriteRenderer.flipX = false;
             }
-            */
         }
     }
 
