@@ -47,10 +47,10 @@ public class PlayerController : MonoBehaviour
             
                 if (movementInput.x == -1) {
                     animator.SetFloat("Horizontal", movementInput.x);
-                    gameObject.transform.localScale = new Vector3(-1, 1, 1);
-                } else {
+                    //gameObject.transform.Rotate(0, 180, 0);
+                } if (movementInput.x == 1) {
                     animator.SetFloat("Horizontal", movementInput.x);
-                    gameObject.transform.localScale = new Vector3(1, 1, 1);
+                     gameObject.transform.Rotate(0, 0, 0);
                 }
                 animator.SetFloat("Vertical", movementInput.y);
 
@@ -66,11 +66,13 @@ public class PlayerController : MonoBehaviour
             }
 
             // Set direction of sprite to movement direction
+           /* 
             if(movementInput.x < 0) {
                 spriteRenderer.flipX = true;
             } else if (movementInput.x > 0) {
                 spriteRenderer.flipX = false;
             }
+            */
         }
     }
 
